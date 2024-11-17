@@ -1,0 +1,26 @@
+{% extends 'personality/temp_auto.html' %}
+
+
+{% block content %}
+<div class="container">
+    <form class="registr" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Вход</legend>
+            <br><br>
+            {% if error %}
+            <h1>{{ error }}</h1>
+            {% endif %}
+            <label for="username">Введите логин:</label><br><br>
+            <input type="text" id="username" name="username" required>
+            <br><br><br>
+            <label for="password">Введите пароль:</label><br><br>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            <button type="submit">Войти</button>
+            <br>
+        </fieldset>
+    </form>
+    <p>Нет аккаунта? <a href="/registration" class="btn-link">Зарегистрироваться</a></p>
+</div>
+{% endblock %}

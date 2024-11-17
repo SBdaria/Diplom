@@ -1,0 +1,43 @@
+{% extends 'personality/temp_auto.html' %}
+
+
+{% block content %}
+<div class="container">
+    <form class="registr" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Создание аккаунта</legend>
+            <br><br>
+            {% if error %}
+            <h1>{{ error }}</h1>
+            {% endif %}
+            <label for="username">Введите логин:</label><br><br>
+            <input type="text" id="username" name="username" maxlength="20" required>
+            <br><br><br>
+            <label for="password">Введите пароль:</label><br><br>
+            <input type="password" id="password" name="password" minlength="8" required>
+            <br><br><br>
+            <label for="repeat_password">Повторите пароль:</label><br><br>
+            <input type="password" id="repeat_password" name="repeat_password" minlength="8" required>
+            <br><br><br>
+            <label for="email">Введите почту:</label><br><br>
+            <input type="email" id="email" name="email" required>
+            <br><br><br>
+            <label for="phone">Введите номер телефона:</label><br><br>
+            <input type="text" id="phone" name="phone" minlength="8">
+            <br><br><br>
+            <label for="birthday">Введите дату рождения:</label><br><br>
+            <input type="text" id="birthday" name="birthday">
+            <br><br><br><br>
+        </fieldset>
+        <ul>
+            <li>Логин должен содержать не более 20 символов.</li>
+            <li>Пароль должен содержать не менее 8 символов.</li>
+            <li>Почта должна заканчиваться на "@name.ru/com".</li>
+            <li>Пример номера телефона: +7**********.</li>
+            <li>Пример даты рождения: 2025-05-29.</li>
+            <button type="submit">Регистрация</button>
+        </ul>
+    </form>
+</div>
+{% endblock %}
